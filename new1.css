@@ -7,6 +7,16 @@ html, body {
 h1 {
     color:black;
     text-align: center;
+    text-transform: uppercase;
+}
+
+h1::after{
+  content: "";
+  display: block;
+  width: 300px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px auto;
 }
 
 h4{
@@ -18,11 +28,19 @@ p{
   color: black;
 }
 
+.flex_box{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 55px;
+}
 
-img{
-    float: left;
+.image_container{
     padding-bottom: 10px;
-    
+}
+
+.image_container img{
+  width: 100%;
+  height: 100%;
 }
     
 
@@ -32,9 +50,6 @@ margin-bottom: 20px;
 
 
 opacity: 0.9;
--webkit-box-shadow: 0 15px 7px -7px black;
--moz-box-shadow: 0 1px 7px -7px black;
-box-shadow: 0 15px 7px -7px black;
 margin: 0 auto;
 z-index: 2;
 }
@@ -50,17 +65,15 @@ html{
 
 
 .sidenav {
-   
-    height: 82.5%;
-    width: 210px;
-    position: absolute;
+    width: 20%;
     z-index: 1;
-    top: 118.5px;
-   
-    left: 0;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: #eee;
-
+    animation: slide;
+    animation-duration: 2s;
 
     padding-top: 20px;
     
@@ -96,20 +109,17 @@ button {
     border-style: solid;
     box-shadow: rgba(0, 0, 0, 0.2) 0 12px 15px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
     box-sizing: border-box;
-    
-    display: inline-flex;
-    
     font-family: 'Georgia';
     font-size: 14px;
     font-weight: 500;
-    height: 48px;
+    height: 65px;
     justify-content: center;
     letter-spacing: .25px;
     line-height: normal;
     max-width: 100%;
     padding: 2px 24px;
     position: relative;
-    
+    display: block;
     
     transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
   
@@ -160,3 +170,34 @@ button:active{
         th:first-child {
             border-left: none;
         }
+
+/*---------------------------------------LOAN APPLICATION FORM----------------------------------------*/
+.loan_app_form{
+  width: 60%;
+  margin: 50px auto;
+}
+
+.loan_app_form input{
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+
+
+
+@keyframes slide{
+  from{transform: translateX(-80%);}
+  to{transform: translateX(0);}
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    
+
+}
+
+@media only screen and (max-width:767px){
+
+}
