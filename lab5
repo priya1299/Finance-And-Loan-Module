@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Parser</title>
+    <style>
+        h1{
+            align-items: center;
+            text-align: center;
+            background-color:;
+        }
+        button{
+            width: 200px;
+            height: 80px;
+            margin-left: 500px;
+            background-color: white;
+            border-radius: 30px;
+        }
+        button:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Finance_Loan_Management</h1>
+    <p><button onclick="loadxmldoc()">Customer</button></p>
+
+    <table id="demo" border="1">
+        <tr>
+            <th>Customer_id</th>
+            <th>Customer_name</th>
+            <th>Customer_address</th>
+            <th>phn_no</th>
+            
+        </tr>
+    </table>
+
+    <script>
+        function loadxmldoc(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200){
+                    myFunction(this);
+                }
+            };
+            xmlhttp.open("GET","NewFile.xml",true);
+            xmlhttp.send();
+        }
+        function myFunction(xml){
+            var x, i, xmlDoc, table;
+            xmlDoc = xml.responseXML;
+            table = "<tr><th>Customer_name</th><th>customer_id</th><th><customer_address></th><th><phn_no></th></tr>";
+            x = xmlDoc.getElementsByTagName("Customer")
+            for (i = 0; i < x.length; i++){
+                table += "<tr><td>"+
+                    x[i].getElementsByTagName("customer_name")[0].childNodes[0].nodeValue + "</td><td>"+ 
+                    x[i].getElementsByTagName("customer_id")[0].childNodes[0].nodeValue + "</td></tr>" +
+                    x[i].getElementsByTagName("customer_address")[0].childNodes[0].nodeValue + "</td></tr>"+
+                    x[i].getElementsByTagName("phnno")[0].childNodes[0].nodeValue + "</td></tr>"+
+                 
+            }
+            document.getElementById("demo").innerHTML = table;
+        }
+    </script>
+</body>
+</html>
