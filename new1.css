@@ -169,6 +169,7 @@ button:active{
         td:first-child,
         th:first-child {
             border-left: none;
+            
         }
 
 /*---------------------------------------LOAN APPLICATION FORM----------------------------------------*/
@@ -185,6 +186,16 @@ button:active{
   border: 1px solid #000;
 }
 
+.error{
+ color: red;
+ font-size: 15px;
+ margin-top: 5px;
+ 
+}
+.hide
+{
+  opacity: 0;
+}
 
 
 
